@@ -29,9 +29,12 @@ function checkAnswer(){
     let userAnswer = parseInt(document.getElementById("answer-box").value);
     let calculatedAnswer = calculateCorrectAnswer();
     if (userAnswer==calculatedAnswer[0]){
+        incrementScore()
         alert("Hey! You got it right! :D");
     } else{
+        incrementwrongAnswer()
         alert("Awwww.... you answered "+userAnswer+". The correct answer was "+calculatedAnswer[0]);
+        
     }
     runGame(calculatedAnswer[1]);
 }
@@ -46,10 +49,12 @@ function calculateCorrectAnswer(){
     }
 }
 function incrementScore(){
-
+    let oldScore = parseInt(document.getElementById("score").innerText);
+    document.getElementById("score").innerText = ++oldScore;
 }
 function incrementwrongAnswer(){
-
+    let oldScore = parseInt(document.getElementById("incorrect").innerText);
+    document.getElementById("incorrect").innerText = ++oldScore;
 }
 function displayAdditionQuestion(operand1,operand2){
     console.log("hello2");
